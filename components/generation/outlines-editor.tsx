@@ -165,7 +165,7 @@ export function OutlinesEditor({
                 <Textarea
                   value={outline.description}
                   onChange={(e) => updateOutline(index, { description: e.target.value })}
-                  placeholder="简短描述这个场景的目的和内容"
+                  placeholder="Beschrijf kort het doel en de inhoud van deze scene"
                   rows={2}
                   disabled={isLoading}
                 />

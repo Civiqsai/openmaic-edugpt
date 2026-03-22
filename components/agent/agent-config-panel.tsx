@@ -32,12 +32,12 @@ export function AgentConfigPanel() {
     <div className="flex flex-col h-full p-4 gap-4">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-semibold">智能体配置</h2>
-          <p className="text-sm text-muted-foreground">管理课堂讨论的AI智能体</p>
+          <h2 className="text-lg font-semibold">Agent configuratie</h2>
+          <p className="text-sm text-muted-foreground">Beheer AI-agenten voor klasdiscussies</p>
         </div>
         <Button size="sm" variant="outline">
           <PlusIcon className="w-4 h-4 mr-2" />
-          新建
+          Nieuw
         </Button>
       </div>
 

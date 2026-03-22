@@ -38,12 +38,17 @@ export async function POST(req: NextRequest) {
     const { model: languageModel } = resolveModelFromHeaders(req);
 
     const isZh = language === 'zh-CN';
+    const isNl = language === 'nl-NL';
 
     const systemPrompt = isZh
       ? `你是一位专业的教育评估专家。请根据题目和学生答案进行评分并给出简短评语。
 必须以如下 JSON 格式回复（不要包含其他内容）：
 {"score": <0到${points}的整数>, "comment": "<一两句评语>"}`
-      : `You are a professional educational assessor. Grade the student's answer and provide brief feedback.
+      : isNl
+        ? `Je bent een professionele onderwijsbeoordelaar. Beoordeel het antwoord van de student en geef kort feedback.
+Antwoord uitsluitend in het volgende JSON-formaat (geen andere inhoud):
+{"score": <geheel getal van 0 tot ${points}>, "comment": "<een of twee zinnen feedback>"}`
+        : `You are a professional educational assessor. Grade the student's answer and provide brief feedback.
 You must reply in the following JSON format only (no other content):
 {"score": <integer from 0 to ${points}>, "comment": "<one or two sentences of feedback>"}`;
 
@@ -51,7 +56,11 @@ You must reply in the following JSON format only (no other content):
       ? `题目：${question}
 满分：${points}分
 ${commentPrompt ? `评分要点：${commentPrompt}\n` : ''}学生答案：${userAnswer}`
-      : `Question: ${question}
+      : isNl
+        ? `Vraag: ${question}
+Maximale score: ${points} punten
+${commentPrompt ? `Beoordelingsrichtlijn: ${commentPrompt}\n` : ''}Antwoord student: ${userAnswer}`
+        : `Question: ${question}
 Full marks: ${points} points
 ${commentPrompt ? `Grading guidance: ${commentPrompt}\n` : ''}Student answer: ${userAnswer}`;
 
@@ -83,7 +92,9 @@ ${commentPrompt ? `Grading guidance: ${commentPrompt}\n` : ''}Student answer: ${
         score: Math.round(points * 0.5),
         comment: isZh
           ? '已作答，请参考标准答案。'
-          : 'Answer received. Please refer to the standard answer.',
+          : isNl
+            ? 'Antwoord ontvangen. Raadpleeg het standaardantwoord.'
+            : 'Answer received. Please refer to the standard answer.',
       };
     }
 

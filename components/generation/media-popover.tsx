@@ -60,6 +60,7 @@ const VIDEO_PROVIDER_ICONS: Record<string, string> = {
 type TabId = 'image' | 'video' | 'tts' | 'asr';
 
 const LANG_LABELS: Record<string, string> = {
+  nl: 'Nederlands',
   zh: '中文',
   en: 'English',
   ja: '日本語',
