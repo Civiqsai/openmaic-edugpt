@@ -20,6 +20,12 @@ RUN pnpm install --frozen-lockfile
 # ---- Stage 3: Builder ----
 FROM base AS builder
 
+ARG BASE_PATH=""
+ARG HIDE_SETTINGS="false"
+ENV BASE_PATH=${BASE_PATH}
+ENV NEXT_PUBLIC_BASE_PATH=${BASE_PATH}
+ENV NEXT_PUBLIC_HIDE_SETTINGS=${HIDE_SETTINGS}
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/packages ./packages
 COPY . .

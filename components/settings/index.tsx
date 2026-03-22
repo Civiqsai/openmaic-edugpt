@@ -655,6 +655,8 @@ export function SettingsDialog({ open, onOpenChange, initialSection }: SettingsD
     }
   };
 
+  if (process.env.NEXT_PUBLIC_HIDE_SETTINGS === 'true') return null;
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="h-[85vh] p-0 gap-0 block" showCloseButton={false}>

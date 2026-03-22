@@ -125,7 +125,8 @@ function HomePage() {
     }
   }
 
-  const needsSetup = storeHydrated && !currentModelId;
+  const hideSettings = process.env.NEXT_PUBLIC_HIDE_SETTINGS === 'true';
+  const needsSetup = !hideSettings && storeHydrated && !currentModelId;
   const [languageOpen, setLanguageOpen] = useState(false);
   const [themeOpen, setThemeOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -231,8 +232,8 @@ function HomePage() {
   };
 
   const handleGenerate = async () => {
-    // Validate setup before proceeding
-    if (!currentModelId) {
+    // Validate setup before proceeding (skip when settings are hidden — model is server-configured)
+    if (!hideSettings && !currentModelId) {
       showSetupToast(
         <BotOff className="size-4.5 text-amber-600 dark:text-amber-400" />,
         t('settings.modelNotConfigured'),
@@ -435,31 +436,35 @@ function HomePage() {
           )}
         </div>
 
-        <div className="w-[1px] h-4 bg-gray-200 dark:bg-gray-700" />
+        {!hideSettings && (
+          <>
+            <div className="w-[1px] h-4 bg-gray-200 dark:bg-gray-700" />
 
-        {/* Settings Button */}
-        <div className="relative">
-          <button
-            onClick={() => setSettingsOpen(true)}
-            className={cn(
-              'p-2 rounded-full text-gray-400 dark:text-gray-500 hover:bg-white dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-200 hover:shadow-sm transition-all group',
-              needsSetup && 'animate-setup-glow',
-            )}
-          >
-            <Settings className="w-4 h-4 group-hover:rotate-90 transition-transform duration-500" />
-          </button>
-          {needsSetup && (
-            <>
-              <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3">
-                <span className="animate-setup-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-violet-500" />
-              </span>
-              <span className="animate-setup-float absolute top-full mt-2 right-0 whitespace-nowrap text-[11px] font-medium text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-950/40 border border-violet-200 dark:border-violet-800/50 px-2 py-0.5 rounded-full shadow-sm pointer-events-none">
-                {t('settings.setupNeeded')}
-              </span>
-            </>
-          )}
-        </div>
+            {/* Settings Button */}
+            <div className="relative">
+              <button
+                onClick={() => setSettingsOpen(true)}
+                className={cn(
+                  'p-2 rounded-full text-gray-400 dark:text-gray-500 hover:bg-white dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-200 hover:shadow-sm transition-all group',
+                  needsSetup && 'animate-setup-glow',
+                )}
+              >
+                <Settings className="w-4 h-4 group-hover:rotate-90 transition-transform duration-500" />
+              </button>
+              {needsSetup && (
+                <>
+                  <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3">
+                    <span className="animate-setup-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-violet-500" />
+                  </span>
+                  <span className="animate-setup-float absolute top-full mt-2 right-0 whitespace-nowrap text-[11px] font-medium text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-950/40 border border-violet-200 dark:border-violet-800/50 px-2 py-0.5 rounded-full shadow-sm pointer-events-none">
+                    {t('settings.setupNeeded')}
+                  </span>
+                </>
+              )}
+            </div>
+          </>
+        )}
       </div>
       <SettingsDialog
         open={settingsOpen}
@@ -494,7 +499,7 @@ function HomePage() {
       >
         {/* ── Logo ── */}
         <motion.img
-          src="/logo-horizontal.png"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/logo-horizontal.png`}
           alt="OpenMAIC"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

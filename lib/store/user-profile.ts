@@ -6,15 +6,17 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 /** Predefined avatar options */
 export const AVATAR_OPTIONS = [
-  '/avatars/user.png',
-  '/avatars/teacher-2.png',
-  '/avatars/assist-2.png',
-  '/avatars/clown-2.png',
-  '/avatars/curious-2.png',
-  '/avatars/note-taker-2.png',
-  '/avatars/thinker-2.png',
+  `${BP}/avatars/user.png`,
+  `${BP}/avatars/teacher-2.png`,
+  `${BP}/avatars/assist-2.png`,
+  `${BP}/avatars/clown-2.png`,
+  `${BP}/avatars/curious-2.png`,
+  `${BP}/avatars/note-taker-2.png`,
+  `${BP}/avatars/thinker-2.png`,
 ] as const;
 
 export interface UserProfileState {

@@ -1,4 +1,6 @@
-export const USER_AVATAR = '/avatars/user.png';
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+export const USER_AVATAR = `${BP}/avatars/user.png`;
 
 export type ParticipantRole = 'teacher' | 'student' | 'user';
 

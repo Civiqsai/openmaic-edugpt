@@ -19,6 +19,8 @@ import { useI18n } from '@/lib/hooks/use-i18n';
 import type { SceneType, SlideContent } from '@/lib/types/stage';
 import { PENDING_SCENE_ID } from '@/lib/store/stage';
 
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 interface SceneSidebarProps {
   readonly collapsed: boolean;
   readonly onCollapseChange: (collapsed: boolean) => void;
@@ -126,7 +128,7 @@ export function SceneSidebar({
             className="flex items-center gap-2 cursor-pointer rounded-lg px-1.5 -mx-1.5 py-1 -my-1 hover:bg-gray-100/80 dark:hover:bg-gray-800/60 active:scale-[0.97] transition-all duration-150"
             title={t('generation.backToHome')}
           >
-            <img src="/logo-horizontal.png" alt="OpenMAIC" className="h-6" />
+            <img src={`${BP}/logo-horizontal.png`} alt="OpenMAIC" className="h-6" />
           </button>
           <button
             onClick={() => onCollapseChange(true)}

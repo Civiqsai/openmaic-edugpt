@@ -29,6 +29,7 @@ import { createLogger } from '@/lib/logger';
 import { type GenerationSessionState, ALL_STEPS, getActiveSteps } from './types';
 import { StepVisualizer } from './components/visualizers';
 
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const log = createLogger('GenerationPreview');
 
 function GenerationPreviewContent() {
@@ -379,18 +380,18 @@ function GenerationPreviewContent() {
 
         try {
           const allAvatars = [
-            '/avatars/assist.png',
-            '/avatars/assist-2.png',
-            '/avatars/clown.png',
-            '/avatars/clown-2.png',
-            '/avatars/curious.png',
-            '/avatars/curious-2.png',
-            '/avatars/note-taker.png',
-            '/avatars/note-taker-2.png',
-            '/avatars/teacher.png',
-            '/avatars/teacher-2.png',
-            '/avatars/thinker.png',
-            '/avatars/thinker-2.png',
+            `${BP}/avatars/assist.png`,
+            `${BP}/avatars/assist-2.png`,
+            `${BP}/avatars/clown.png`,
+            `${BP}/avatars/clown-2.png`,
+            `${BP}/avatars/curious.png`,
+            `${BP}/avatars/curious-2.png`,
+            `${BP}/avatars/note-taker.png`,
+            `${BP}/avatars/note-taker-2.png`,
+            `${BP}/avatars/teacher.png`,
+            `${BP}/avatars/teacher-2.png`,
+            `${BP}/avatars/thinker.png`,
+            `${BP}/avatars/thinker-2.png`,
           ];
 
           // No outlines yet — agent generation uses only stage name + description

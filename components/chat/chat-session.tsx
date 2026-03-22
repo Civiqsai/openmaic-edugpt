@@ -27,9 +27,10 @@ interface ChatSessionProps {
   readonly onEndSession?: (sessionId: string) => void;
 }
 
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const AVATARS = {
-  teacher: '/avatars/teacher.png',
-  user: '/avatars/user.png',
+  teacher: `${BP}/avatars/teacher.png`,
+  user: `${BP}/avatars/user.png`,
 };
 
 /** Render avatar as <img> for URLs or as emoji text span */

@@ -79,8 +79,9 @@ interface RoundtableProps {
   readonly onWhiteboardClose?: () => void;
 }
 
-const DEFAULT_TEACHER_AVATAR = '/avatars/teacher.png';
-const DEFAULT_USER_AVATAR = '/avatars/user.png';
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const DEFAULT_TEACHER_AVATAR = `${BP}/avatars/teacher.png`;
+const DEFAULT_USER_AVATAR = `${BP}/avatars/user.png`;
 
 /** Render avatar as <img> for URLs or as emoji text span */
 function AvatarDisplay({ src, alt, className }: { src: string; alt?: string; className?: string }) {

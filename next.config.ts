@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   output: process.env.VERCEL ? undefined : 'standalone',
+  basePath: process.env.BASE_PATH || '',
   transpilePackages: ['mathml2omml', 'pptxgenjs'],
   serverExternalPackages: [],
   experimental: {
