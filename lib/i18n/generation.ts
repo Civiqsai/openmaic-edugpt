@@ -65,6 +65,75 @@ export const generationZhCN = {
   },
 } as const;
 
+export const generationNlNL = {
+  classroom: {
+    recentClassrooms: 'Recent',
+    today: 'Vandaag',
+    yesterday: 'Gisteren',
+    daysAgo: 'dagen geleden',
+    slides: 'dia\'s',
+    nameCopied: 'Naam gekopieerd',
+    deleteConfirmTitle: 'Verwijderen',
+    delete: 'Verwijderen',
+  },
+  upload: {
+    pdfSizeLimit: 'Ondersteunt PDF-bestanden tot 50 MB',
+    generateFailed: 'Les genereren mislukt, probeer het opnieuw',
+    requirementPlaceholder:
+      'Vertel me wat je wilt leren, bijv.\n"Leer me Python vanaf nul in 30 minuten"\n"Leg de Fouriertransformatie uit op het whiteboard"\n"Hoe speel je het bordspel Avalon"',
+    requirementRequired: 'Voer de lesvereisten in',
+    fileTooLarge: 'Bestand te groot. Selecteer een PDF-bestand kleiner dan 50 MB',
+  },
+  generation: {
+    // Progress steps (used dynamically via activeStep)
+    analyzingPdf: 'PDF-document analyseren',
+    analyzingPdfDesc: 'Documentstructuur en inhoud extraheren...',
+    pdfLoadFailed: 'Kan PDF-bestand niet laden, probeer het opnieuw',
+    pdfParseFailed: 'PDF-analyse mislukt',
+    streamNotReadable: 'Kan de generatiestroom niet lezen',
+    generatingOutlines: 'Lesoverzicht opstellen',
+    generatingOutlinesDesc: 'Het leerpad wordt opgebouwd...',
+    generatingSlideContent: 'Pagina-inhoud genereren',
+    generatingSlideContentDesc: 'Dia\'s, quizzen en interactieve inhoud worden aangemaakt...',
+    generatingActions: 'Lesacties genereren',
+    generatingActionsDesc: 'Vertelling, spotlights en interacties worden georganiseerd...',
+    generationComplete: 'Genereren voltooid!',
+    generationFailed: 'Genereren mislukt',
+    generatingCourse: 'Les wordt gegenereerd',
+    openingClassroom: 'Lokaal openen...',
+    outlineReady: 'Lesoverzicht gegenereerd',
+    generatingFirstPage: 'Eerste pagina wordt gegenereerd...',
+    firstPageReady: 'Eerste pagina klaar! Lokaal wordt geopend...',
+    speechFailed: 'Spraakgeneratie mislukt',
+    retryScene: 'Opnieuw proberen',
+    retryingScene: 'Opnieuw genereren...',
+    backToHome: 'Terug naar startpagina',
+    sessionNotFound: 'Sessie niet gevonden',
+    sessionNotFoundDesc: 'Vul de lesvereisten in om het genereerproces te starten.',
+    goBackAndRetry: 'Terug en opnieuw proberen',
+    classroomReady: 'Je persoonlijke AI-leeromgeving is succesvol gegenereerd.',
+    aiWorking: 'AI-agents zijn bezig...',
+    textTruncated: 'Documenttekst is lang, de eerste {n} tekens worden gebruikt voor generatie',
+    imageTruncated:
+      '{total} afbeeldingen gevonden, meer dan het maximum van {max}. Extra afbeeldingen worden alleen als tekstbeschrijving gebruikt',
+    // Agent generation
+    agentGeneration: 'Klasrollen genereren',
+    agentGenerationDesc: 'Rollen worden gegenereerd op basis van de lesinhoud...',
+    agentRevealTitle: 'Jouw klasrollen',
+    viewAgents: 'Rollen bekijken',
+    continue: 'Doorgaan',
+    // Outline errors
+    outlineRetrying: 'Probleem bij het genereren van het overzicht, opnieuw proberen...',
+    outlineEmptyResponse:
+      'Het model heeft geen geldig overzicht teruggegeven. Controleer de modelconfiguratie en probeer het opnieuw',
+    outlineGenerateFailed: 'Overzicht genereren mislukt, probeer het later opnieuw',
+    // Web Search
+    webSearching: 'Zoeken op internet',
+    webSearchingDesc: 'Het web wordt doorzocht voor actuele informatie',
+    webSearchFailed: 'Zoeken op internet mislukt',
+  },
+} as const;
+
 export const generationEnUS = {
   classroom: {
     recentClassrooms: 'Recent',

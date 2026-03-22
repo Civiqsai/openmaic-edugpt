@@ -20,6 +20,11 @@ export function buildPBLSystemPrompt(config: PBLSystemPromptConfig): string {
     return buildPBLSystemPromptZH(config);
   }
 
+  // For nl-NL and en-US (and any other language), use the English template
+  // with a language instruction so the LLM generates content in the right language
+  const languageName = language === 'nl-NL' ? 'Dutch (Nederlands)' : language === 'en-US' ? 'English' : language;
+  const languageInstruction = `\n\n## Language\nYou MUST generate ALL content (titles, descriptions, role names, instructions) in ${languageName}.\n`;
+
   return `You are a Teaching Assistant (TA) on a Project-Based Learning platform. You are fully responsible for designing group projects for students based on the course information provided by the teacher.
 
 ## Your Responsibility
@@ -81,7 +86,7 @@ When you create issues:
 
 **IMPORTANT**: Once you have configured the project info, defined all necessary agents (roles), and created the issueboard with tasks, you MUST set your mode to **idle** to indicate completion.
 
-Your initial mode is **project_info**.`;
+Your initial mode is **project_info**.${languageInstruction}`;
 }
 
 function buildPBLSystemPromptZH(config: PBLSystemPromptConfig): string {

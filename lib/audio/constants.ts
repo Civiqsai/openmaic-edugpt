@@ -183,6 +183,24 @@ export const TTS_PROVIDERS: Record<TTSProviderId, TTSProviderConfig> = {
         gender: 'female',
       },
       { id: 'en-US-GuyNeural', name: 'Guy', language: 'en-US', gender: 'male' },
+      {
+        id: 'nl-NL-ColetteNeural',
+        name: 'Colette (Nederlands)',
+        language: 'nl-NL',
+        gender: 'female',
+      },
+      {
+        id: 'nl-NL-MaartenNeural',
+        name: 'Maarten (Nederlands)',
+        language: 'nl-NL',
+        gender: 'male',
+      },
+      {
+        id: 'nl-NL-FennaNeural',
+        name: 'Fenna (Nederlands)',
+        language: 'nl-NL',
+        gender: 'female',
+      },
     ],
     supportedFormats: ['mp3', 'wav', 'ogg'],
     speedRange: { min: 0.5, max: 2.0, default: 1.0 },
@@ -614,7 +632,7 @@ export const TTS_PROVIDERS: Record<TTSProviderId, TTSProviderConfig> = {
     voices: [
       // Note: Actual voices are determined by the browser and OS
       // These are placeholder - real voices are fetched dynamically via speechSynthesis.getVoices()
-      { id: 'default', name: '默认', language: 'zh-CN', gender: 'neutral' },
+      { id: 'default', name: '默认', language: 'nl-NL', gender: 'neutral' },
     ],
     supportedFormats: ['browser'], // Browser native audio
     speedRange: { min: 0.1, max: 10.0, default: 1.0 },
@@ -830,7 +848,7 @@ export function getTTSProvider(providerId: TTSProviderId): TTSProviderConfig | u
  */
 export const DEFAULT_TTS_VOICES: Record<TTSProviderId, string> = {
   'openai-tts': 'alloy',
-  'azure-tts': 'zh-CN-XiaoxiaoNeural',
+  'azure-tts': 'nl-NL-ColetteNeural',
   'glm-tts': 'tongtong',
   'qwen-tts': 'Cherry',
   'browser-native-tts': 'default',

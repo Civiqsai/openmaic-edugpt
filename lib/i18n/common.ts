@@ -39,6 +39,47 @@ export const commonZhCN = {
   },
 } as const;
 
+export const commonNlNL = {
+  common: {
+    you: 'Jij',
+    confirm: 'Bevestigen',
+    cancel: 'Annuleren',
+    loading: 'Laden...',
+  },
+  home: {
+    slogan: 'Generative Learning in Multi-Agent Interactive Classroom',
+    greeting: 'Hoi, ',
+  },
+  toolbar: {
+    languageHint: 'De les wordt in deze taal gegenereerd',
+    pdfParser: 'Parser',
+    pdfUpload: 'PDF uploaden',
+    removePdf: 'Bestand verwijderen',
+    webSearchOn: 'Ingeschakeld',
+    webSearchOff: 'Klik om in te schakelen',
+    webSearchDesc: 'Doorzoek het web voor actuele informatie voordat de les wordt gegenereerd',
+    webSearchProvider: 'Zoekmachine',
+    webSearchNoProvider: 'Configureer een zoek-API-sleutel in Instellingen',
+    selectProvider: 'Provider selecteren',
+    configureProvider: 'Model instellen',
+    configureProviderHint: 'Configureer minstens een modelprovider om lessen te genereren',
+    enterClassroom: 'Lokaal betreden',
+    advancedSettings: 'Geavanceerde instellingen',
+    ttsTitle: 'Spraaksynthese',
+    ttsHint: 'Kies een stem voor de AI-docent',
+    ttsPreview: 'Voorbeeld',
+    ttsPreviewing: 'Afspelen...',
+  },
+  export: {
+    pptx: 'Exporteren als PPTX',
+    resourcePack: 'Lespakket exporteren',
+    resourcePackDesc: 'PPTX + interactieve pagina\'s',
+    exporting: 'Exporteren...',
+    exportSuccess: 'Export geslaagd',
+    exportFailed: 'Export mislukt',
+  },
+} as const;
+
 export const commonEnUS = {
   common: {
     you: 'You',

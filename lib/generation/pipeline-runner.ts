@@ -39,7 +39,7 @@ export async function runGenerationPipeline(
       ...session.progress,
       currentStage: 1,
       overallProgress: 5,
-      statusMessage: '正在分析需求，生成场景大纲...',
+      statusMessage: 'Analyzing requirements, generating scene outlines...',
     });
 
     const outlinesResult = await generateSceneOutlinesFromRequirements(
@@ -60,7 +60,7 @@ export async function runGenerationPipeline(
       ...session.progress,
       currentStage: 2,
       overallProgress: 50,
-      statusMessage: '正在生成场景内容...',
+      statusMessage: 'Generating scene content...',
       totalScenes: session.sceneOutlines.length,
     });
 

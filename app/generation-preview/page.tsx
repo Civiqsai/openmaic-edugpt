@@ -368,7 +368,7 @@ function GenerationPreviewContent() {
         id: stageId,
         name: extractTopicFromRequirement(currentSession.requirements.requirement),
         description: '',
-        language: currentSession.requirements.language || 'zh-CN',
+        language: currentSession.requirements.language || 'nl-NL',
         style: 'professional',
         createdAt: Date.now(),
         updatedAt: Date.now(),
@@ -400,7 +400,7 @@ function GenerationPreviewContent() {
             headers: getApiHeaders(),
             body: JSON.stringify({
               stageInfo: { name: stage.name, description: stage.description },
-              language: currentSession.requirements.language || 'zh-CN',
+              language: currentSession.requirements.language || 'nl-NL',
               availableAvatars: allAvatars,
             }),
             signal,

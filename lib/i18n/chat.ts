@@ -69,6 +69,77 @@ export const chatZhCN = {
   },
 } as const;
 
+export const chatNlNL = {
+  chat: {
+    lecture: 'Les',
+    noConversations: 'Geen gesprekken',
+    startConversation: 'Typ een bericht om te beginnen',
+    noMessages: 'Nog geen berichten',
+    ended: 'beëindigd',
+    unknown: 'Onbekend',
+    stopDiscussion: 'Discussie stoppen',
+    endQA: 'Q&A beëindigen',
+    tabs: {
+      lecture: 'Aantekeningen',
+      chat: 'Chat',
+    },
+    lectureNotes: {
+      empty: 'Aantekeningen verschijnen hier na het afspelen van de les',
+      emptyHint: 'Druk op afspelen om de les te starten',
+      pageLabel: 'Pagina {n}',
+      currentPage: 'Huidig',
+    },
+    badge: {
+      qa: 'Q&A',
+      discussion: 'DISC',
+      lecture: 'LES',
+    },
+  },
+  actions: {
+    names: {
+      spotlight: 'Spotlight',
+      laser: 'Laserpen',
+      wb_open: 'Whiteboard openen',
+      wb_draw_text: 'Whiteboard-tekst',
+      wb_draw_shape: 'Whiteboard-vorm',
+      wb_draw_chart: 'Whiteboard-grafiek',
+      wb_draw_latex: 'Whiteboard-formule',
+      wb_draw_table: 'Whiteboard-tabel',
+      wb_draw_line: 'Whiteboard-lijn',
+      wb_clear: 'Whiteboard wissen',
+      wb_delete: 'Element verwijderen',
+      wb_close: 'Whiteboard sluiten',
+      discussion: 'Discussie',
+    },
+    status: {
+      inputStreaming: 'Wachten',
+      inputAvailable: 'Uitvoeren',
+      outputAvailable: 'Voltooid',
+      outputError: 'Fout',
+      outputDenied: 'Geweigerd',
+      running: 'Uitvoeren',
+      result: 'Voltooid',
+      error: 'Fout',
+    },
+  },
+  agentBar: {
+    readyToLearn: 'Klaar om samen te leren?',
+    expandedTitle: 'Configuratie klasrollen',
+    configTooltip: 'Klik om klasrollen te configureren',
+  },
+  proactiveCard: {
+    discussion: 'Discussie',
+    join: 'Deelnemen',
+    skip: 'Overslaan',
+    pause: 'Pauzeren',
+    resume: 'Hervatten',
+  },
+  voice: {
+    startListening: 'Spraakinvoer',
+    stopListening: 'Opname stoppen',
+  },
+} as const;
+
 export const chatEnUS = {
   chat: {
     lecture: 'Lecture',

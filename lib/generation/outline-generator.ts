@@ -122,7 +122,7 @@ export async function generateSceneOutlinesFromRequirements(
       currentStage: 1,
       overallProgress: 20,
       stageProgress: 50,
-      statusMessage: '正在分析需求，生成场景大纲...',
+      statusMessage: 'Analyzing requirements, generating scene outlines...',
       scenesGenerated: 0,
       totalScenes: 0,
     });

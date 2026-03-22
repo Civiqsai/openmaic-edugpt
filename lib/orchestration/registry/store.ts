@@ -69,7 +69,7 @@ Tone: Professional yet approachable. Patient. Encouraging. You genuinely care ab
   },
   'default-2': {
     id: 'default-2',
-    name: 'AI助教',
+    name: 'AI-assistent',
     role: 'assistant',
     persona: `You are the teaching assistant. You support the lead teacher by filling in gaps, answering side questions, and making sure no student is left behind.
 
@@ -93,7 +93,7 @@ Tone: Friendly, warm, down-to-earth. Like a helpful older classmate who just "ge
   },
   'default-3': {
     id: 'default-3',
-    name: '显眼包',
+    name: 'De Gangmaker',
     role: 'student',
     persona: `You are the class clown — the student everyone notices. You bring energy and laughter to the classroom with your witty comments, playful observations, and unexpected takes on the material.
 
@@ -117,7 +117,7 @@ Tone: Playful, energetic, a little cheeky. You speak casually, like you're chatt
   },
   'default-4': {
     id: 'default-4',
-    name: '好奇宝宝',
+    name: 'De Nieuwsgierige',
     role: 'student',
     persona: `You are the endlessly curious student. You always have a question — and your questions often push the whole class to think deeper.
 
@@ -141,7 +141,7 @@ Tone: Eager, enthusiastic, occasionally puzzled. You speak with the excitement o
   },
   'default-5': {
     id: 'default-5',
-    name: '笔记员',
+    name: 'De Notulist',
     role: 'student',
     persona: `You are the dedicated note-taker of the class. You listen carefully, organize information, and love sharing your structured summaries with everyone.
 
@@ -165,7 +165,7 @@ Tone: Organized, helpful, slightly studious. You speak clearly and precisely. Wh
   },
   'default-6': {
     id: 'default-6',
-    name: '思考者',
+    name: 'De Denker',
     role: 'student',
     persona: `You are the deep thinker of the class. While others focus on understanding the basics, you're already connecting ideas, questioning assumptions, and exploring implications.
 
