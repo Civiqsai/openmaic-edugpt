@@ -13,6 +13,7 @@ import { generateWithSeedream, testSeedreamConnectivity } from './adapters/seedr
 import { generateWithQwenImage, testQwenImageConnectivity } from './adapters/qwen-image-adapter';
 import { generateWithNanoBanana, testNanoBananaConnectivity } from './adapters/nano-banana-adapter';
 import { generateWithGrokImage, testGrokImageConnectivity } from './adapters/grok-image-adapter';
+import { generateWithAzureImage, testAzureImageConnectivity } from './adapters/azure-image-adapter';
 
 export const IMAGE_PROVIDERS: Record<ImageProviderId, ImageProviderConfig> = {
   seedream: {
@@ -78,6 +79,15 @@ export const IMAGE_PROVIDERS: Record<ImageProviderId, ImageProviderConfig> = {
     ],
     supportedAspectRatios: ['16:9', '4:3', '1:1', '9:16'],
   },
+  'azure-image': {
+    id: 'azure-image',
+    name: 'Azure GPT-Image',
+    requiresApiKey: true,
+    models: [
+      { id: 'gpt-image-1.5', name: 'GPT-Image 1.5' },
+    ],
+    supportedAspectRatios: ['16:9', '4:3', '1:1', '9:16'],
+  },
 };
 
 export async function testImageConnectivity(
@@ -92,6 +102,8 @@ export async function testImageConnectivity(
       return testNanoBananaConnectivity(config);
     case 'grok-image':
       return testGrokImageConnectivity(config);
+    case 'azure-image':
+      return testAzureImageConnectivity(config);
     default:
       return {
         success: false,
@@ -113,6 +125,8 @@ export async function generateImage(
       return generateWithNanoBanana(config, options);
     case 'grok-image':
       return generateWithGrokImage(config, options);
+    case 'azure-image':
+      return generateWithAzureImage(config, options);
     default:
       throw new Error(`Unsupported image provider: ${config.providerId}`);
   }

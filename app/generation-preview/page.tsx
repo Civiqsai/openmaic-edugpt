@@ -21,6 +21,7 @@ import {
 import { getCurrentModelConfig } from '@/lib/utils/model-config';
 import { db } from '@/lib/utils/database';
 import { MAX_PDF_CONTENT_CHARS, MAX_VISION_IMAGES } from '@/lib/constants/generation';
+import { getVoiceForLanguage } from '@/lib/audio/constants';
 import { nanoid } from 'nanoid';
 import type { Stage } from '@/lib/types/stage';
 import type { SceneOutline, PdfImage, ImageMapping } from '@/lib/types/generation';
@@ -667,7 +668,7 @@ function GenerationPreviewContent() {
                 text: action.text,
                 audioId,
                 ttsProviderId: settings.ttsProviderId,
-                ttsVoice: settings.ttsVoice,
+                ttsVoice: getVoiceForLanguage(settings.ttsProviderId, currentSession.requirements.language || 'nl-NL'),
                 ttsSpeed: settings.ttsSpeed,
                 ttsApiKey: ttsProviderConfig?.apiKey || undefined,
                 ttsBaseUrl: ttsProviderConfig?.baseUrl || undefined,

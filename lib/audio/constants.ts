@@ -862,6 +862,23 @@ export function getTTSVoices(providerId: TTSProviderId): TTSVoiceInfo[] {
 }
 
 /**
+ * Get the best matching voice for a given language and TTS provider.
+ * Returns the first female voice matching the language, or falls back to the default voice.
+ */
+export function getVoiceForLanguage(providerId: TTSProviderId, language: string): string {
+  const voices = getTTSVoices(providerId);
+  // Exact match (e.g., 'nl-NL')
+  const match = voices.find((v) => v.language === language);
+  if (match) return match.id;
+  // Prefix match (e.g., 'nl' matches 'nl-NL')
+  const prefix = language.split('-')[0];
+  const prefixMatch = voices.find((v) => v.language?.startsWith(prefix));
+  if (prefixMatch) return prefixMatch.id;
+  // Fallback to default
+  return DEFAULT_TTS_VOICES[providerId] || voices[0]?.id || 'default';
+}
+
+/**
  * Get all available ASR providers
  */
 export function getAllASRProviders(): ASRProviderConfig[] {
